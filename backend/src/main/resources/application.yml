@@ -7,9 +7,9 @@ spring:
       enabled: true
 
   datasource:
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://aws-1-ap-south-1.pooler.supabase.com:6543/postgres?sslmode=require&prepareThreshold=0}
-    username: ${SPRING_DATASOURCE_USERNAME:postgres.lpaxgcwgoglsretegkiw}
-    password: ${SPRING_DATASOURCE_PASSWORD:Hypermesh@6124}
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
     hikari:
       maximum-pool-size: 2
 
@@ -27,8 +27,8 @@ spring:
   mail:
     host: ${SPRING_MAIL_HOST:smtp-relay.brevo.com}
     port: ${SPRING_MAIL_PORT:587}
-    username: ${SPRING_MAIL_USERNAME:YOUR_BREVO_EMAIL@example.com}
-    password: ${SPRING_MAIL_PASSWORD:YOUR_BREVO_SMTP_KEY}
+    username: ${SPRING_MAIL_USERNAME}
+    password: ${SPRING_MAIL_PASSWORD}
     protocol: smtp
     properties:
       mail.smtp.auth: true
@@ -49,15 +49,15 @@ server:
 
 app:
   jwt:
-    secret: change-this-in-production-32bytes-minimum!!
+    secret: ${JWT_SECRET:change-this-in-production-32bytes-minimum!!}
     expiry-hours: 168
   razorpay:
-    key-id: ${RAZORPAY_KEY_ID:rzp_test_YOUR_KEY}
-    key-secret: ${RAZORPAY_KEY_SECRET:YOUR_SECRET}
+    key-id: ${RAZORPAY_KEY_ID}
+    key-secret: ${RAZORPAY_KEY_SECRET}
   brevo:
-    sender-email: ${SPRING_MAIL_USERNAME:YOUR_EMAIL@example.com}
+    sender-email: ${SPRING_MAIL_USERNAME}
     sender-name: KaamSetu
-    api-key: ${BREVO_API_KEY:YOUR_BREVO_API_KEY}
+    api-key: ${BREVO_API_KEY}
   cors:
     allowed-origins: ${CORS_ALLOWED_ORIGINS:*}
   frontend-url: ${FRONTEND_URL:http://localhost:3000}
