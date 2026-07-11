@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    # Override test schema — use the env variable or fall back to a distinct
+    # database so seed data never contaminates dev/prod.
+    url: ${TEST_DATABASE_URL:jdbc:postgresql://localhost:5432/postgres}
+  jpa:
+    hibernate:
+      ddl-auto: validate

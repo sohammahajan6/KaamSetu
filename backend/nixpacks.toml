@@ -1,0 +1,11 @@
+# Railway uses Nixpacks (not Docker) to detect pom.xml and build the jar.
+# Pin JDK 21 explicitly so Railway's auto-detection doesn't pick an older
+# default when the nixpkgs revision changes.
+[phases.setup]
+nixPkgs = ["jdk21"]
+
+[phases.install]
+cmds = ["./mvnw -B package -DskipTests"]
+
+[start]
+cmd = "java -jar target/hyperlocal-backend-0.1.0.jar"

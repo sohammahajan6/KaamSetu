@@ -1,0 +1,63 @@
+@import 'tailwindcss';
+@import 'leaflet/dist/leaflet.css';
+
+@theme {
+  --font-sans: 'IBM Plex Sans', system-ui, sans-serif;
+
+  /* Ink navy / neutral base / marigold accent / muted teal for success */
+  --color-background: #f7f8f7;
+  --color-foreground: #14181f;
+  --color-card: #ffffff;
+  --color-card-foreground: #14181f;
+  --color-primary: #e8a33d;
+  --color-primary-foreground: #14181f;
+  --color-secondary: #14181f;
+  --color-secondary-foreground: #f7f8f7;
+  --color-muted: #ecEEec;
+  --color-muted-foreground: #5b6270;
+  --color-border: #dfe2df;
+  --color-input: #dfe2df;
+  --color-ring: #e8a33d;
+  --color-success: #2f6f5e;
+  --color-success-foreground: #f7f8f7;
+  --color-destructive: #b3442e;
+  --color-destructive-foreground: #f7f8f7;
+
+  --radius: 0.5rem;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-background text-foreground font-sans antialiased;
+}
+
+/* Leaflet z-index fix so map stays under app chrome */
+.leaflet-container {
+  z-index: 0;
+}
+
+/* Status tracker progress line animation */
+@keyframes tracker-fill {
+  from {
+    width: 0%;
+  }
+}
+
+@keyframes tracker-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(232, 163, 61, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(232, 163, 61, 0);
+  }
+}
+
+.tracker-active-dot {
+  animation: tracker-pulse 2s ease-in-out infinite;
+}
