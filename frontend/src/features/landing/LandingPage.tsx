@@ -274,7 +274,7 @@ export function LandingPage() {
       <footer className="border-t border-border bg-card">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 py-6 text-sm text-muted-foreground sm:flex-row">
           <p>KaamSetu — local services, done right.</p>
-          <p>Demo app. All data is simulated.</p>
+          <p>© {new Date().getFullYear()} KaamSetu. All rights reserved.</p>
         </div>
       </footer>
     </div>
